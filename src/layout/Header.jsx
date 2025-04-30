@@ -31,6 +31,7 @@ export default function Header() {
         <header className="bg-white flex justify-center">
             <Menu
                 mode="horizontal"
+                className="w-full"
                 items={items}
                 onClick={(e) => {
                     const link = e.key === 'home'?  '/' : e.key

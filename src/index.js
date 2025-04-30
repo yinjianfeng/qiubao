@@ -4,11 +4,25 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { ConfigProvider } from 'antd';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <App />
+    <ConfigProvider
+      theme={
+        {
+          token: {
+            colorPrimary: 'rgba(238, 123, 23, 1)',
+            colorLink: 'rgba(238, 123, 23, 1)',
+            colorLinkActive: 'rgba(238, 123, 23, 1)',
+            colorLinkHover: 'rgba(238, 123, 23, 1)',
+          },
+        }
+      }
+    >
+      <App />
+    </ConfigProvider>
   </BrowserRouter>
 );
 

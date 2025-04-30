@@ -1,8 +1,25 @@
-export default function Index()
-{
+import { useEffect, useState } from "react";
+import { serverApi } from "../server";
+
+export default function Index() {
+    const [data, setData] = useState({});
+    
+    useEffect(() => {
+        loadData();
+    }, []);
+
+    const loadData = () => {
+        serverApi.getIntroduction().then(res => {
+            const { data, meta } = res;
+            setData(data);
+        });
+    }
+
     return (
         <div>
-            <h1>Index</h1>
+            <div className="text-3xl text-center font-bold">{data.title}</div>
+            <div className="border-b-[7px] border-b-[rgb(218, 238, 243)] my-5"></div>
+            <div><div dangerouslySetInnerHTML={{ __html: data.content }}></div></div>
         </div>
     );
 }
